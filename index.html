@@ -282,6 +282,34 @@
     @media(max-width:480px){
       .proc-steps{grid-template-columns:1fr;}
     }
+
+    /* ── Hero two-column ── */
+    .hero-wrap{display:grid;grid-template-columns:1fr 380px;gap:3rem;align-items:center;}
+    .hero-funnel-wrap{position:relative;}
+    .hf-sys-lbl{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;text-align:center;margin-bottom:.875rem;opacity:.8;}
+    .hero-funnel{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);background:rgba(8,8,10,.6);backdrop-filter:blur(12px);}
+    .hfn{display:flex;align-items:center;gap:.875rem;padding:.875rem 1.1rem;border-bottom:1px solid var(--border);position:relative;transition:background .2s;}
+    .hfn:last-child{border-bottom:none;}
+    .hfn:hover{background:var(--surface);}
+    .hfn-icon{width:32px;height:32px;background:var(--gold-dim);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .hfn-info{flex:1;}
+    .hfn-lbl{font-size:.75rem;font-weight:600;color:var(--text);line-height:1.2;}
+    .hfn-sub{font-size:.6rem;color:var(--muted);margin-top:1px;}
+    .hfn-val{font-family:var(--font-d);font-weight:900;font-size:1rem;color:var(--gold);white-space:nowrap;}
+    .hfn-conn{height:24px;display:flex;align-items:center;justify-content:center;position:relative;background:var(--bg);}
+    .hfn-conn::before{content:'';position:absolute;left:50%;transform:translateX(-50%);top:0;bottom:0;width:1px;background:var(--border-2);}
+    .hfn-conn-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);position:absolute;left:50%;transform:translateX(-50%);animation:dotDrop 2s ease-in-out infinite;}
+    @keyframes dotDrop{0%{top:0;opacity:0;}20%{opacity:1;}80%{opacity:1;}100%{top:18px;opacity:0;}}
+    .hfn-conn:nth-child(2) .hfn-conn-dot{animation-delay:.33s;}
+    .hfn-conn:nth-child(4) .hfn-conn-dot{animation-delay:.66s;}
+    .hfn-conn:nth-child(6) .hfn-conn-dot{animation-delay:.99s;}
+    .hfn-conn:nth-child(8) .hfn-conn-dot{animation-delay:1.32s;}
+    .hfn-conn:nth-child(10) .hfn-conn-dot{animation-delay:1.65s;}
+    .hf-top-bar{background:var(--gold);padding:.5rem 1.1rem;display:flex;align-items:center;justify-content:space-between;}
+    .hf-top-bar-lbl{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);font-weight:700;}
+    .hf-top-bar-live{display:flex;align-items:center;gap:5px;font-size:.6rem;color:var(--bg);font-weight:600;opacity:.8;}
+    .hf-top-bar-dot{width:5px;height:5px;border-radius:50%;background:var(--bg);animation:pulse 2s ease infinite;}
+    @media(max-width:1024px){.hero-wrap{grid-template-columns:1fr;}.hero-funnel-wrap{display:none;}}
   </style>
 </head>
 <body>
@@ -306,49 +334,88 @@
   <div style="position:absolute;width:700px;height:700px;border-radius:50%;background:rgba(200,169,110,0.05);filter:blur(140px);top:-200px;left:-150px;pointer-events:none;"></div>
   <div style="position:absolute;width:450px;height:450px;border-radius:50%;background:rgba(200,169,110,0.04);filter:blur(100px);bottom:-50px;right:8%;pointer-events:none;"></div>
 
-  <div class="wrap" style="position:relative;z-index:2;width:100%;">
+  <div class="wrap hero-wrap" style="position:relative;z-index:2;width:100%;">
 
-    <!-- Logo only — no links out -->
-    <div class="hero-logo r">Dreamkey <span>Media</span></div>
-
-    <div class="r rd1">
-      <div class="hero-badge">
-        <span style="width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2s ease infinite;display:inline-block;"></span>
-        Bangkok Nightlife Customer Acquisition System
+    <!-- LEFT: copy -->
+    <div class="hero-left">
+      <div class="hero-logo r">Dreamkey <span>Media</span></div>
+      <div class="r rd1">
+        <div class="hero-badge">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2s ease infinite;display:inline-block;"></span>
+          Bangkok Nightlife Customer Acquisition System
+        </div>
+      </div>
+      <h1 class="r rd2">
+        Fill Your Venue<br>
+        Every Night.<br>
+        <span style="color:var(--gold);font-style:italic;">On Autopilot.</span>
+      </h1>
+      <p class="hero-sub r rd3">
+        The complete guest list, WhatsApp automation, and paid ads system built specifically for bars, clubs, and rooftop venues in Bangkok — delivering 4.8x ROAS and a 68% show-up rate.
+      </p>
+      <div class="hero-cta-row r rd4">
+        <a href="https://api.leadconnectorhq.com/widget/booking/sLC2Canz8qWReIuQP6AG" target="_blank" rel="noopener" class="btn-primary lg" onclick="fbq('track','Lead');">
+          Book Free Venue Strategy Session
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <span style="font-size:.8rem;color:var(--muted);">No commitment · 30 minutes · Free</span>
+      </div>
+      <div class="hero-trust r rd4">
+        <div class="trust-item"><div class="trust-num">4.8x</div><div class="trust-lbl">Average ROAS Delivered</div></div>
+        <div class="trust-item"><div class="trust-num">68%</div><div class="trust-lbl">Guest Show-Up Rate</div></div>
+        <div class="trust-item"><div class="trust-num">+218%</div><div class="trust-lbl">Guest List Growth</div></div>
       </div>
     </div>
 
-    <h1 class="r rd2">
-      Fill Your Venue<br>
-      Every Night.<br>
-      <span style="color:var(--gold);font-style:italic;">On Autopilot.</span>
-    </h1>
+    <!-- RIGHT: funnel visual -->
+    <div class="hero-funnel-wrap r rd3">
+      <div class="hf-sys-lbl">Nightlife Acquisition System</div>
+      <div class="hero-funnel">
+        <div class="hf-top-bar">
+          <div class="hf-top-bar-lbl">System Active</div>
+          <div class="hf-top-bar-live"><div class="hf-top-bar-dot"></div> Live</div>
+        </div>
 
-    <p class="hero-sub r rd3">
-      The complete guest list, WhatsApp automation, and paid ads system built specifically for bars, clubs, and rooftop venues in Bangkok — delivering 4.8x ROAS and a 68% show-up rate.
-    </p>
+        <div class="hfn">
+          <div class="hfn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 3 7-9" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="hfn-info"><div class="hfn-lbl">Paid Traffic Engine</div><div class="hfn-sub">Meta & Google Ads · Bangkok targeting</div></div>
+          <div class="hfn-val">5K+</div>
+        </div>
+        <div class="hfn-conn"><div class="hfn-conn-dot"></div></div>
 
-    <div class="hero-cta-row r rd4">
-      <a href="https://api.leadconnectorhq.com/widget/booking/sLC2Canz8qWReIuQP6AG" target="_blank" rel="noopener" class="btn-primary lg" onclick="fbq('track','Lead');">
-        Book Free Venue Strategy Session
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <span style="font-size:.8rem;color:var(--muted);">No commitment · 30 minutes · Free</span>
-    </div>
+        <div class="hfn">
+          <div class="hfn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="1.5" stroke="#C8A96E" stroke-width="1.5"/><path d="M8 21h8M12 17v4" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="hfn-info"><div class="hfn-lbl">Venue Landing Page</div><div class="hfn-sub">Conversion-optimised · Mobile-first</div></div>
+          <div class="hfn-val">45%</div>
+        </div>
+        <div class="hfn-conn"><div class="hfn-conn-dot"></div></div>
 
-    <!-- Trust bar -->
-    <div class="hero-trust r rd4">
-      <div class="trust-item">
-        <div class="trust-num">4.8x</div>
-        <div class="trust-lbl">Average ROAS Delivered</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-num">68%</div>
-        <div class="trust-lbl">Guest Show-Up Rate</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-num">+218%</div>
-        <div class="trust-lbl">Guest List Growth</div>
+        <div class="hfn">
+          <div class="hfn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="hfn-info"><div class="hfn-lbl">Guest List Capture</div><div class="hfn-sub">Name · Phone · Email → CRM</div></div>
+          <div class="hfn-val">+218%</div>
+        </div>
+        <div class="hfn-conn"><div class="hfn-conn-dot"></div></div>
+
+        <div class="hfn">
+          <div class="hfn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="hfn-info"><div class="hfn-lbl">WhatsApp Automation</div><div class="hfn-sub">Confirm · Remind · Upsell table</div></div>
+          <div class="hfn-val">94%</div>
+        </div>
+        <div class="hfn-conn"><div class="hfn-conn-dot"></div></div>
+
+        <div class="hfn">
+          <div class="hfn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="#C8A96E" stroke-width="1.5"/></svg></div>
+          <div class="hfn-info"><div class="hfn-lbl">Guest Shows Up</div><div class="hfn-sub">Tracked arrival · Spend data</div></div>
+          <div class="hfn-val">68%</div>
+        </div>
+        <div class="hfn-conn"><div class="hfn-conn-dot"></div></div>
+
+        <div class="hfn" style="border-bottom:2px solid var(--gold);">
+          <div class="hfn-icon" style="background:rgba(200,169,110,0.2);border-color:var(--gold);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#C8A96E" stroke-width="1.5"/><path d="M12 6v6l3 3" stroke="#C8A96E" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="hfn-info"><div class="hfn-lbl" style="color:var(--gold);">Revenue & Retention</div><div class="hfn-sub">Re-market · VIP loyalty · Rebook</div></div>
+          <div class="hfn-val">4.8x</div>
+        </div>
       </div>
     </div>
 
